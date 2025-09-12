@@ -7,6 +7,18 @@ Author: Dawid Majcherek
 */
 
 if (!defined('ABSPATH')) exit;
+
+/*
+DEV
+
+Generalnie dobra robota. Komentarze tylko po angielsku, nazwy zmiennych też. 
+Dodaj sobie linijkę przerwy między funkcjami
+
+Dobrze, że prefiksujesz nazwy funkcji. Możesz zrobić to samo przy nazwach shortcodów, id, nazwy klas etc.
+Wszystkie teksty muszą być tłumaczalne
+
+*/
+
 function cm_register_cpt() {
     register_post_type('map_marker', [
         'labels' => [
@@ -70,6 +82,7 @@ function cm_render_metabox($post) {
             <?php 
             if (!empty($coords)) {
                 foreach ($coords as $pair) {
+                    // DEV: Po co tutaj używasz echo? Możesz zamknąć tag php i otworzyć go z powrotem trochę dalej?
                     echo '<div class="cm-coord">' .
                          '<input type="text" name="cm_coords_lat[]" value="'.esc_attr($pair[0]).'" placeholder="Lat"> ' .
                          '<input type="text" name="cm_coords_lng[]" value="'.esc_attr($pair[1]).'" placeholder="Lng"> ' .
@@ -78,6 +91,7 @@ function cm_render_metabox($post) {
                 }
             } else {
                 // 1 puste pole na start
+                // DEV: Nie do końca rozumiem po co ci nazwy klas, skoro nigdzie nie ma do tego referencji, ani w css ani w js.. :/
                 echo '<div class="cm-coord">' .
                      '<input type="text" name="cm_coords_lat[]" placeholder="Szerokość geograficzna"> ' .
                      '<input type="text" name="cm_coords_lng[]" placeholder="Długość geograficzna"> ' .
@@ -90,6 +104,7 @@ function cm_render_metabox($post) {
     </p>
 
     <p>
+        <!-- DEV: Wszystkie teksty powinny być zamknięte w funkcję do tłumaczeń, np. _e("Kolor obszaru", "domena-wtyczki") -->
         <label>Kolor obszaru:</label><br>
         <input type="text" name="cm_color" 
                value="<?php echo esc_attr($color); ?>" 
@@ -127,6 +142,7 @@ add_action('save_post', 'cm_save_post');
 
 // Shortcode
 function cm_render_map() {
+    // DEV: Skoro tutaj dodajesz style z cdn, po co ci pobrane w kodzie źródłowym?
     wp_enqueue_style('leaflet', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css');
     wp_enqueue_script('leaflet', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js', [], null, true);
     wp_enqueue_script('cm-map', plugins_url('/assets/map.js', __FILE__), ['leaflet'], false, true);
@@ -142,10 +158,15 @@ function cm_render_map() {
             'color' => get_post_meta($marker->ID, '_cm_color', true)
         ];
     }
+    
+    // DEV: Jak robisz coś takiego, warto najlepiej komentarzem, albo jsdoc'iem oznaczyć to w pliku, żeby było wiadomo skąd ta zmienna się tam pojawia
     wp_localize_script('cm-map', 'cm_data', $data);
 
+    // DEV: Nie dawaj id takich jak "custom-map", tylko też użyj prefixu, ale to pierdoła
     return '<div id="custom-map" style="width:100%; height:500px;"></div>';
 }
+
+// DEV: Nie dawaj takich nazw jak "custom_map", tylko też użyj prefixu, ale to pierdoła 
 add_shortcode('custom_map', 'cm_render_map');
 
 

@@ -1,3 +1,5 @@
+// DEV: Tu gdzieś powinien być albo komentarz albo jsdoc na temat zmienniej cm_data.
+// DEV: vary są przestarzałe, patrz admin.js
 document.addEventListener("DOMContentLoaded", function() {
     var map = L.map('custom-map').setView([52.2297, 21.0122], 6);
 

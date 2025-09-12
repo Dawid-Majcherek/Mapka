@@ -1,3 +1,7 @@
+// DEV: "var"y są przestarzałe od 2015 roku - nie używaj ich. Używaj albo let albo const
+// DEV: Jquery Ci daruję bo pół wordpressa na tym stoi, ale gdziekolwiek indziej - nie ma potrzeby tego używać
+// DEV: logi jeżeli już to po angielsku, komentarze również
+
 jQuery(document).ready(function($){
     console.log("admin.js działa ✅");
 
