@@ -117,7 +117,6 @@ function cm_render_map() {
         ];
     }
     wp_localize_script('cm-map', 'cm_data', $data);
-
     return '<div id="custom-map" style="width:100%; height:500px;"></div>';
 }
 add_shortcode('custom_map', 'cm_render_map');
