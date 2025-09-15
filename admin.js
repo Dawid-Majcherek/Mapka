@@ -106,7 +106,6 @@ jQuery(document).ready(function($){
         });
     }
 
-    
     if ($('.cm-color-field').length && typeof $.fn.wpColorPicker === 'function') {
         $('.cm-color-field').wpColorPicker();
     }
