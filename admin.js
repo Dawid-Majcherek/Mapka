@@ -105,7 +105,6 @@ jQuery(document).ready(function($){
             redrawFromCoords(coords, newType, map, drawnItems);
         });
     }
-
     if ($('.cm-color-field').length && typeof $.fn.wpColorPicker === 'function') {
         $('.cm-color-field').wpColorPicker();
     }
