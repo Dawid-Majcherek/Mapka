@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const mapContainer = document.getElementById("custom-map");
     if (!mapContainer) return;
 
-    
     var map = L.map("custom-map").setView([52.2297, 21.0122], 6);
 
     
