@@ -27,12 +27,9 @@ function cm_admin_scripts($hook) {
         
         wp_enqueue_style('leaflet', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css');
         wp_enqueue_script('leaflet', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js', [], null, true);
-
-        
         wp_enqueue_style('wp-color-picker');
         wp_enqueue_script('wp-color-picker');
 
-        
         wp_enqueue_script(
             'cm-admin',
             plugin_dir_url(__FILE__) . 'assets/admin.js',
