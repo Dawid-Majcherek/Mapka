@@ -54,7 +54,6 @@ function cm_admin_scripts($hook) {
 }
 add_action('admin_enqueue_scripts', 'cm_admin_scripts');
 
-
 /**
  * Add custom metabox for marker data
  */
@@ -152,3 +151,4 @@ function cm_render_map() {
     return '<div id="custom-map" style="width:100%; height:500px;"></div>';
 }
 add_shortcode('custom_map', 'cm_render_map');
+
