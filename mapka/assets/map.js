@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }).addTo(map);
 
     const layersGroup = L.featureGroup().addTo(map);
-
     /**
      * cm_data – global variable passed from PHP to JS via wp_localize_script().
      * It contains all the data about points and polygons saved in the plugin's database.
@@ -50,3 +49,4 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 });
+
