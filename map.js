@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
         attribution: "&copy; OpenStreetMap",
     }).addTo(map);
 
-    
     var allLayers = L.featureGroup().addTo(map);
 
     if (typeof cm_data !== "undefined" && cm_data.length > 0) {
