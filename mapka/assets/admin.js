@@ -98,7 +98,6 @@ jQuery(document).ready(function($) {
                 redrawFromCoords(coords, $("select[name='cm_type']").val() || 'point', map, drawnItems);
             }
         });
-
         // Change between point and polygon type
         $("select[name='cm_type']").on('change', function() {
             const newType = $(this).val();
@@ -118,3 +117,4 @@ jQuery(document).ready(function($) {
         $('.cm-color-field').wpColorPicker();
     }
 });
+
