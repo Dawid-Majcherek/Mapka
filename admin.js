@@ -91,7 +91,6 @@ jQuery(document).ready(function($){
             }
         });
 
-        
         $("select[name='cm_type']").on('change', function(){
             var newType = $(this).val();
             if (newType === 'point') {
